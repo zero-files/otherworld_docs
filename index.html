@@ -26,8 +26,26 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
         <!-- Google Fonts -->
     </head>
-    <body>
-        
+    <body class="blue-grey darken-4">
+        <nav class="deep-orange darken-3" style="position: fixed;">
+            <div class="nav-wrapper" style="padding: 0 20px;">
+                <a href="#!" class="brand-logo">· Otherworld ·</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a data-translate="navbar.game" href="game.html"></a></li>
+                    <li><a data-translate="navbar.docs" href="documentation.html"></a></li>
+                    <li><a data-translate="navbar.about" href="about.html"></a></li>
+                </ul>
+            </div>
+        </nav>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="game.html">JUEGO</a></li>
+            <li><a href="documentation.html">DOCS</a></li>
+            <li><a href="about.html">ACERCA DE</a></li>
+        </ul>
+
+
+        <a id="ongithub" href="#" class="btn-floating btn-large waves-effect waves-light"></a>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
     </body>

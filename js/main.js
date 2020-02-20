@@ -1,36 +1,31 @@
+const localisation = {
+    spanish: {
+        "navbar.game": "JUEGO",
+        "navbar.docs": "DOCS",
+        "navbar.about": "ACERCA DE"
+    },
+    english: {
+        "navbar.game": "GAME",
+        "navbar.docs": "DOCS",
+        "navbar.about": "ABOUT"
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const sidenavs = document.querySelectorAll('.sidenav')
     M.Sidenav.init(sidenavs)
 
-    const nav = document.querySelector("nav")
-    const sections = document.querySelector(".sections")
-    let mainHeight = document.getElementById("main").clientHeight
-    window.addEventListener("resize", () => mainHeight = document.getElementById("main").clientHeight)
+    let lang = "spanish"
+    const langs = Object.keys(localisation)
+    if(langs.indexOf(lang) === -1) lang = "spanish"
+    const dicolang = localisation[lang]
+    const dicolangkeys = Object.keys(dicolang)
 
-    if(nav && sections){
-        window.addEventListener("scroll", function(){
-            if(this.scrollY > mainHeight) {
-                nav.classList.add("fixed")
-                sections.style.paddingTop = "80px"
-            } else {
-                nav.classList.remove("fixed")
-                sections.style.paddingTop = "0"
-            }
-        })
-    }
-
-    const godown = document.getElementById("godown")
-    if(godown) godown.addEventListener("click", () => window.scrollTo(0, mainHeight))
-});
-
-
-// var  mn = $("nav");
-// mns = "fixed";
-// hdr = $('#fixeador').height();
-// $(window).scroll(function() {
-//     if( $(this).scrollTop() > hdr ) {
-//         mn.addClass(mns);
-//     } else {
-//         mn.removeClass(mns);
-//     }
-// });   
+    const textfields = document.querySelectorAll("[data-translate]")
+    textfields.forEach(element => {
+        if(element.dataset && element.dataset.translate) for(i = 0; i < dicolangkeys.length; i++) {
+            let field = element.dataset.translate
+            if(dicolangkeys.indexOf(field) !== -1) element.innerHTML = dicolang[field]
+        }
+    })
+})
