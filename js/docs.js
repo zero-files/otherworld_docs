@@ -7,7 +7,7 @@ const sleep = time => new Promise(res => setTimeout(() => res(),time||1000))
  *  path:string
  *  description:string
  *  tier:number
- *  link:string
+ *  filename:string
  *  parameters: {
  *      name:string
  *      type:string
@@ -25,7 +25,7 @@ function getDocs(){
                 path: "/test",
                 description: "Esta es una ruta de pruebas",
                 tier: 0,
-                link: "test.js",
+                filename: "test.js",
                 parameters: [
                     {
                         name: "x",
@@ -46,7 +46,7 @@ function getDocs(){
                 path: "/wooo",
                 description: "Esta es una ruta awesome",
                 tier: 0,
-                link: "wooo.js",
+                filename: "wooo.js",
             }
         ]
         resolve(fakedata)
@@ -60,7 +60,7 @@ function getDocs(){
  *  path:string
  *  description:string
  *  tier:number
- *  link:string
+ *  filename:string
  *  parameters: {
  *      name:string
  *      type:string
@@ -99,7 +99,7 @@ function autoDoc(data){
             </tr>
             ${parameters.length ? parameters.join("\n") : "<td></td><td></td><td></td>"}
         </table>
-        <p style="text-align: right; margin: 20px 0 5px 0">En github: <a href="https://github.com/zero-files/otherworld_api/src/controllers/${data.link}">src/controllers/${data.link}</a></p>
+        <p style="text-align: right; margin: 20px 0 5px 0">En github: <a href="https://github.com/zero-files/otherworld_api/src/controllers/${data.filename}">src/controllers/${data.filename}</a></p>
     `
     return li
 }
