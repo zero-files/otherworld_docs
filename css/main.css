@@ -4,15 +4,14 @@
 
 * {
     font-family: 'Kreon', 'sans-serif';
-    color: #fafafa
+    color: #fafafa;
+    box-sizing: border-box;
 }
 p {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
 }
 
-body {
-}
 .noclickable {pointer-events: none;}
 .material-icons { font-family: 'Material Icons' !important; }
 .noselect {
@@ -24,6 +23,14 @@ body {
     user-select: none;
 }
 .lighter {font-weight: lighter !important;}
+.roboto *{
+    font-family: "Roboto", "sans-serif";
+}
+
+nav {
+    position: fixed;
+    z-index: 1000;
+}
 
 .discord-btn {
     height: 40px;
@@ -51,7 +58,6 @@ body {
     margin: 0;
     padding: 5px 10px;
     border-radius: 3px;
-    background-color: red;
     border: 1px solid rgba(255,255,255,0.1);
     box-shadow: var(--shadow);
 }
@@ -75,10 +81,79 @@ body {
     padding: 1rem;
 }
 
+.container.main {
+    background-color: rgba(255,255,255,0.05);
+    box-shadow: 0 0 3px -1px rgba(0,0,0,0.5);
+    min-height: 150vh;
+    padding-top: 75px;
+    text-align: center;
+}
+
+#baseurl {
+    margin: 10px 20px;
+    text-align: left;
+}
+
+#docs {
+    width: 100%;
+    padding: 5px 0 
+}
+
+#docs * {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+#docs li {
+    min-height: 10px;
+    background-color: rgba(0,0,0,0.25);
+    border: none;
+    padding: 15px 20px;
+}
+#docs li:nth-child(odd) { 
+    background-color: rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(255,255,255,0.5); border-bottom: 1px solid rgba(255,255,255,0.5);
+
+}
+
+#docs li h4 {
+    margin: 15px 0
+}
+#docs li h5 {
+    margin: 25px 0 10px 0
+}
+
+#docs li p {
+    margin: 5px 0;
+}
+
+#docs li table tr {
+    height: 50px;
+}
+
+#docs li table td, #docs li table th {
+    padding: 5px;
+}
+
+#docs li table th {
+    background-color: rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+}
+#docs li table td {
+    background-color: rgba(0,0,0,0.05);
+    border: 1px solid rgba(255,255,255,0.15)
+}
+
 @media only screen and (max-width: 600px){
     .s0 { display: none; }
-
-
+    .container {
+        width: 100%;
+    }
+    #baseurl {
+        margin: 10px 0;
+        text-align: center;
+    }
 }
 @media only screen and (max-width: 992px){ 
     .m0 { display: none; }
