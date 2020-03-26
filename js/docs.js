@@ -1,4 +1,4 @@
-const API_URL = "https://www.example.com/"
+const API_URL = "https://otherworld-api.herokuapp.com"
 
 const sleep = time => new Promise(res => setTimeout(() => res(),time||1000))
 /**
@@ -16,42 +16,7 @@ const sleep = time => new Promise(res => setTimeout(() => res(),time||1000))
  *  }[]
  * }[]>}
  */
-function getDocs(){
-    return new Promise(async (resolve, reject) =>{
-        await sleep(1500)
-        const fakedata = [
-            {
-                method: "GET",
-                path: "/test",
-                description: "Esta es una ruta de pruebas",
-                tier: 0,
-                filename: "test.js",
-                parameters: [
-                    {
-                        name: "x",
-                        type: "string",
-                        description: "un parametro x",
-                        isRequired: false
-                    },
-                    {
-                        name: "y",
-                        type: "string",
-                        description: "un parametro y",
-                        isRequired: true
-                    },
-                ]
-            },
-            {
-                method: "GET",
-                path: "/wooo",
-                description: "Esta es una ruta awesome",
-                tier: 0,
-                filename: "wooo.js",
-            }
-        ]
-        resolve(fakedata)
-    })
-}
+const getDocs = async () => await fetch(`${API_URL}/autodocumentation`).then(res => res.json())
 
 /**
  * 
@@ -110,8 +75,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const $docs = document.getElementById("docs")
     if($docs){
-        let routes = await getDocs()
-        let lis = routes.map(route => autoDoc(route))
+        let {data} = await getDocs()
+        
+        let lis = data.map(route => autoDoc(route))
         lis.forEach(li => $docs.appendChild(li))
     }
     
