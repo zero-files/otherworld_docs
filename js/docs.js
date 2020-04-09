@@ -16,7 +16,7 @@ const sleep = time => new Promise(res => setTimeout(() => res(),time||1000))
  *  }[]
  * }[]>}
  */
-const getDocs = async () => await fetch(`${API_URL}/autodocumentation`).then(res => res.json())
+const get_docs = async () => await fetch(`${API_URL}/autodocumentation`).then(res => res.json())
 
 /**
  * 
@@ -35,7 +35,7 @@ const getDocs = async () => await fetch(`${API_URL}/autodocumentation`).then(res
  * }} data
  * @returns {HTMLLIElement}
  */
-function autoDoc(data){
+function auto_doc(data){
     let li = document.createElement("li")
 
     let parameters = []
