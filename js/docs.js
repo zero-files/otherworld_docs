@@ -75,9 +75,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const $docs = document.getElementById("docs")
     if($docs){
-        let {data} = await getDocs()
+        let {data} = await get_docs()
         
-        let lis = data.map(route => autoDoc(route))
+        let lis = data.map(route => auto_doc(route))
         lis.forEach(li => $docs.appendChild(li))
     }
     
